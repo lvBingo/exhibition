@@ -1,6 +1,6 @@
-# exhibition
+# Exhibition
 
-#LAUNCH APP
+### LAUNCH APP
 先配置webpack，和安装npm依赖。webpack: http://webpack.github.io/docs/tutorials/getting-started/
 ```
 $ npm install webpack -g
