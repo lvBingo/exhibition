@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>海淀通史展</title>
+        <link rel="icon" href="favicon.ico?v=1" type="image/x-icon">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- 启用 WebApp 全屏模式 -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <!-- 关闭电话号码的自动识别 -->
+        <meta name="format-detection" content="telephone=no" />
+        <!-- 关闭邮箱的自动识别 -->
+        <meta content="email=no" name="format-detection" />
+        <meta content="telephone=no" name="format-detection" />
+        <link href="../static/main.css" rel="stylesheet" />
+        <link href="../static/catalog.css" rel="stylesheet" />
+        <script type="text/javascript" src='../static/jquery.min.js'></script>
+        <script type="text/javascript">
+            var timeHandle;
+            $(function () {
+                $('.search-container input').focus(function(event) {
+                    $('.catalog-page').addClass('search-mode');
+                }).blur(function(){
+                    if($('.search-list').hasClass('no-result'))
+                        $('.catalog-page').removeClass('search-mode');
+                }).on('input keyup paste cut', function() {
+                    clearTimeout(timeHandle);
+                    if($('.search-container input').val().length)
+                        timeHandle = setTimeout(function(){
+                            $.get('http://123.57.37.103/hdtsz/search?q='+$('.search-container input').val(),
+                                function(data){
+                                    $('.search-list').empty();
+                                    if(data.length){
+                                        for (var i = data.length - 1; i >= 0; i--) {
+                                            var item = data[i];
+                                            $('.search-list').append('<section><a href="detail.html?id=' + item.id + '">'+item.title+'</a></section>');
+                                        }
+                                        $('.search-list').removeClass('no-result');
+                                    }
+                                    else {
+                                        $('.search-list').append('<section><a>无结果</a></section>').addClass('no-result');
+                                    }
+                                }
+                            );
+                        },500);
+                    else
+                        $('.search-list').addClass('no-result').empty();
+                });
+
+                if($('.search-container input').val().length){
+                    $('.search-container input').keyup();
+                }
+
+                FastClick.attach(document.body);
+            })
+        </script>
+    </head>
+    <body>
+        <div class='catalog-page container search-mode'>
+            <div class='header-img'>
+                <img src='../static/img/bg_top.jpg' />
+            </div>
+            <div class='footer-img'>
+                <img src='../static/img/bg_bottom.jpg' />
+            </div>
+            <div class='layer'>
+                <div class='title-container'>
+                    <img src='../static/img/title_0.png'/>
+                </div>
+                <div class='article'>
+                    <i class='symbol'></i>
+                    <p>海淀地处京城西北,紧邻太行余脉,山环水映,湖泉丰沛。在古都北京五十万年的人类居住史、三千余年的建城史、八百余年的建都史中,海淀形成了独具风貌的山水文化、底蕴丰厚的人文历史和勇于探索、改革创新的精神特质。</p><p>《海淀通史展》展示从新石器时代以来海淀的山川水系、聚落城址、寺庙文化、园林名胜;近现代以来反帝反封建、争取民族独立的斗争;建设新中国和探索中国特色社会主义建设道路的历程,特别是在经济文化、科技教育等方面所取得的非凡成就和海淀人民对美好未来的憧憬。</p>
+                </div>
+                <div class='cutline'>站点搜索</div>
+                <div class='search-container'>
+                    <label>
+                        <input type='text' placeholder='搜索展点'/>
+                        <i class="search-icon"></i>
+                    </label>
+                </div>
+                <div class='cutline'>章节索引</div>
+                <div class='cutline search'>搜索结果</div>
+                <ul class='chapter-index'>
+                    <li><a href="list_01.html"><img src='../static/img/title_1.png'/></a></li>
+                    <li><a href="list_02.html"><img src='../static/img/title_2.png'/></a></li>
+                    <li><a href="list_03.html"><img src='../static/img/title_3.png'/></a></li>
+                    <li><a href="list_04.html"><img src='../static/img/title_4.png'/></a></li>
+                </ul>
+                <div class='copy-right'></div>
+                <div class="search-list">
+                    <section><a>无结果</a></section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

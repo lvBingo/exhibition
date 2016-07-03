@@ -66,6 +66,13 @@ i{
   wdith:100%;
 }
 
+html{
+  height: 100%;
+}
+body{
+  height: 100%;
+}
+
 .container{
   width:100%;
   height: auto;
@@ -74,61 +81,60 @@ i{
   padding:32px 12.5% 22px;
   background: url('img/bg_texture.jpg') repeat scroll center;
   background-size: 100%;
+}
 
-  .header-img, .footer-img{
+.container .header-img,
+.container .footer-img{
     display: block;
     position:absolute;
     width:100%;
     top:0;
     left: 0;
     z-index: 1;
-
-    img{
-      width:100%;
-      margin-bottom: -3px;
-    }
-  }
-
-  .footer-img{
+}
+.container .header-img img,
+.container .footer-img img{
+  width:100%;
+  margin-bottom: -3px;
+}
+.container .footer-img{
     top:auto;
     bottom:0;
-  }
+}
 
-  .layer{
+.container .layer{
     position:relative;
     z-index: 2;
-  }
+}
 
-    .title-container{
-        width:100%;
-        text-align: center;
-        margin-bottom: 28px;
-        img{
-            display: inline-block;
-            width:260px;
-        }
-    }
+.title-container{
+    width:100%;
+    text-align: center;
+    margin-bottom: 28px;
+}
 
-    .article{
-        .symbol {
-            position: absolute;
-            display: inline-block;
-            width:36px;
-            height: 24px;
-            margin-left: -16px;
-            margin-top: -6px;
-            background: url('img/quotation_mark.png') no-repeat center;
-            background-size: 36px;
-        }
+.title-container img{
+    display: inline-block;
+    width:260px;
+}
 
-        p{
-            font-size: 14px;
-            line-height: 24px;
-            color: #6E5C56;
-            text-indent: 2em;
-            margin-bottom: 8px;
-        }
-    }
+.article .symbol {
+    position: absolute;
+    display: inline-block;
+    width:36px;
+    height: 24px;
+    margin-left: -16px;
+    margin-top: -6px;
+    background: url('img/quotation_mark.png') no-repeat center;
+    background-size: 36px;
+}
+
+.article p{
+    font-size: 14px;
+    line-height: 24px;
+    color: #6E5C56;
+    text-indent: 2em;
+    margin-bottom: 8px;
 }
 
 .cutline {
@@ -141,8 +147,3 @@ i{
     background:url('img/cut_line.png') no-repeat center;
     background-size:301px;
 }
-
-
-@import './detail.scss';
-@import './catalog.scss';
-@import './list.scss';

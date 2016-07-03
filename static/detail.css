@@ -1,0 +1,180 @@
+.detail-page{
+    min-height: 100%;
+}
+
+.artwork{
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.artwork img {
+    display: inline-block;
+    position: absolute;
+    min-height: 100%;
+    top:-50%;
+    left:-50%;
+}
+
+.desc{
+    position: fixed;
+    width:91.4%;
+    height: 202px;
+    padding: 2px 24px;
+    margin-left: 4.3%;
+    bottom:16px;
+    border-radius: 4px;
+    background: url('img/bg_texture.jpg') repeat scroll center;
+    background-size: 100%;
+    box-shadow: inset #F7ECD2 0 2px 0px, #444 0 4px 12px;
+    overflow: hidden;
+    -moz-transition: height .5s; /* Firefox 4 */
+    -webkit-transition: height .5s; /* Safari 和 Chrome */
+    transition: height .5s;
+}
+
+.desc.no-content{
+    height: 74px;
+}
+
+.desc.no-content p{
+    display:none;
+}
+
+.desc.no-content .control{
+    display: none;
+}
+
+.desc.no-content h1{
+    line-height: 72px;
+}
+
+.desc.expand{
+    height: 80%;
+    overflow: scroll;
+    -moz-transition: height .5s; /* Firefox 4 */
+    -webkit-transition: height .5s; /* Safari 和 Chrome */
+    transition: height .5s;
+}
+
+.desc.expand p{
+    height: auto;
+}
+.desc.expand .control {
+    position:static;
+    margin: 16px 0;
+    background-image:url('img/button_collapse.png');
+}
+
+.desc.expand .hidden-article{
+    display: block !important;
+}
+
+.desc.expand .show-article {
+    display: none;
+}
+
+.desc br{
+    display: block;
+    margin: 10px 0;
+    content: " ";
+}
+
+.desc .imgBkg {
+    position:absolute;
+    width:100%;
+    bottom: 0px;
+    left: 0;
+    z-index: -1;
+}
+
+.desc .imgBkg img{
+    width:100%;
+    margin-bottom: -3px;
+}
+
+.desc .imgTop{
+    display: none;
+    position:absolute;
+    width: 100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+}
+
+.desc .imgTop img{
+    width:100%;
+}
+
+.desc h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #4C3D3D;
+    line-height: 62px;
+}
+
+.desc p{
+    height: 50px;
+    color:#66544F;
+    line-height: 26px;
+}
+
+.desc .control{
+    position:absolute;
+    width: 100%;
+    height: 48px;
+    bottom:16px;
+    left:0px;
+    text-align: center;
+    background:url('img/button_read_2.png') no-repeat scroll center;
+    background-size: 240px;
+}
+.desc .control i {
+    display: block;
+    font-weight: 700;
+    line-height: 46px;
+    font-size: 16px;
+    color: #EDDFCA;
+}
+
+.desc .control .hidden-article {
+    display: none;
+}
+
+.no-pic .desc{
+    position:relative;
+    width:100%;
+    min-height: 100%;
+    height: auto;
+    top:0;
+    left: 0;
+    margin-left: 0;
+    border-radius:0;
+    overflow: scroll;
+    box-shadow:none;
+    padding-bottom: 68px;
+}
+.no-pic .desc h1{
+    margin-top: 18px;
+}
+
+.no-pic .desc .control {
+    display: none;
+}
+
+.no-pic .desc .imgBkg{
+    z-index: 1;
+}
+
+.no-pic .desc .imgTop{
+    display: block;
+}
+
+.no-pic .desc p{
+    height: auto;
+}
+.no-pic .desc section{
+    position:relative;
+    z-index: 2;
+}
+

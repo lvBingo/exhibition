@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>海淀通史展</title>
+        <link rel="icon" href="favicon.ico?v=1" type="image/x-icon">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ws: 'unsafe-inline' https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src *;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!-- 启用 WebApp 全屏模式 -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-touch-fullscreen" content="yes" />
+        <!-- 关闭电话号码的自动识别 -->
+        <meta name="format-detection" content="telephone=no" />
+        <!-- 关闭邮箱的自动识别 -->
+        <meta content="email=no" name="format-detection" />
+        <meta content="telephone=no" name="format-detection" />
+        <link href="../static/main.css" rel="stylesheet" />
+        <link href="../static/detail.css" rel="stylesheet" />
+        <script type="text/javascript" src='../static/jquery.min.js'></script>
+        <script type="text/javascript">
+            var getQueryString = function (name) {
+              var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+              var r = window.location.search.substr(1).match(reg);
+              if (r != null) return unescape(r[2]);
+              else return "";
+            }
+            var desc;
+            var slideUp = function(){
+                $('.desc p').html(desc.length>30?desc.slice(0,38)+'...':desc);
+            };
+            var slideDown = function(){
+                setTimeout(function(){
+                    $('.desc p').html(desc);
+                },200);
+            };
+            $(function () {
+                $.get('http://123.57.37.103/hdtsz/detail?id='+getQueryString('id'),
+                    function(data){
+                        var width,height, $pic;
+                        if(data.pic){
+                            width = data.picSize.width, height=data.picSize.height;
+                            $pic = $("<img src='http://123.57.37.103/hdtsz/picture/"+data.id+".jpg' />");
+                            if(width<height) 
+                                $pic.width($(window).width());
+                            else
+                                $pic.height($(window).height());
+                            $('.artwork').append($pic)
+                        }else{
+                            $('.detail-page').addClass('no-pic');
+                            if($('.no-pic .desc').height()<$(window).height()-70)
+                                $('.no-pic .desc').height($(window).height()-70)
+                        }
+                        if(data.desc){
+                            desc = data.desc;
+                            if(data.pic) slideUp();
+                            else slideDown();
+                        }else{
+                            $('.desc').addClass('no-content');
+                        }
+                        $('.desc h1').text(data.title);
+                        $('.detail-page').show();
+                    }
+                );
+
+                $('.show-article').click(function(){
+                    $('.desc').addClass('expand');
+                    slideDown();
+                });
+
+
+                $('.hidden-article').click(function(){
+                    $('.desc').removeClass('expand');
+                    slideUp();
+                });
+                
+                FastClick.attach(document.body);
+            });
+        </script>
+    </head>
+    <body>
+        <div class='detail-page' style='display:none'>
+            <div class='artwork'>
+                
+            </div>
+            <div class='desc'>
+                <div class='imgTop'>
+                    <img src='../static/img/bg_top.jpg' />
+                </div>
+                <div class='imgBkg'>
+                    <img src='../static/img/bg_bottom.jpg' />
+                </div>
+                <section>
+                    <h1>牡丹芦雁图壁画</h1>
+                    <p></p>
+                    <div class='control'>
+                        <i class='show-article'>展开全文</i>
+                        <i class='hidden-article'>收起全文</i>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
