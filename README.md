@@ -11,6 +11,7 @@ $ npm install
 启动Web 调试模式。URL：http://localhost:9090/
 
 >`$ npm run watch`
+
 生成文件到/tmp文件夹。
 
 >`$ npm run dist`
