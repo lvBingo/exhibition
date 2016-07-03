@@ -1,0 +1,148 @@
+/**
+ *  Normalize And Common Components
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, bdi, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  border:0;
+  margin:0;
+  outline:0;
+  padding:0;
+  font-family:"Lucida Grande","Lucida Sans Unicode","Helvetica","Arial","Verdana","sans-serif";
+  font-size:15px;
+  font-style:inherit;
+  font-weight:inherit;
+  -webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+button,input{
+  outline:0;
+}
+
+*,
+*:before,
+*:after{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+img{
+  border: 0;
+}
+
+li, a{
+  overflow: hidden;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+  float: left;
+}
+
+i{
+  font-style:normal;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.show {
+  display: block !important;
+}
+
+.title-container{
+  wdith:100%;
+}
+
+.container{
+  width:100%;
+  height: auto;
+  min-height: 100%;
+  position: relative;
+  padding:32px 12.5% 22px;
+  background: url('img/bg_texture.jpg') repeat scroll center;
+  background-size: 100%;
+
+  .header-img, .footer-img{
+    display: block;
+    position:absolute;
+    width:100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+
+    img{
+      width:100%;
+      margin-bottom: -3px;
+    }
+  }
+
+  .footer-img{
+    top:auto;
+    bottom:0;
+  }
+
+  .layer{
+    position:relative;
+    z-index: 2;
+  }
+
+    .title-container{
+        width:100%;
+        text-align: center;
+        margin-bottom: 28px;
+        img{
+            display: inline-block;
+            width:260px;
+        }
+    }
+
+    .article{
+        .symbol {
+            position: absolute;
+            display: inline-block;
+            width:36px;
+            height: 24px;
+            margin-left: -16px;
+            margin-top: -6px;
+            background: url('img/quotation_mark.png') no-repeat center;
+            background-size: 36px;
+        }
+
+        p{
+            font-size: 14px;
+            line-height: 24px;
+            color: #6E5C56;
+            text-indent: 2em;
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.cutline {
+    width:100%;
+    height: 40px;
+    color:#9B8981;
+    text-align: center;
+    line-height: 40px;
+    margin-top: 22px;
+    background:url('img/cut_line.png') no-repeat center;
+    background-size:301px;
+}
+
+
+@import './detail.scss';
+@import './catalog.scss';
+@import './list.scss';

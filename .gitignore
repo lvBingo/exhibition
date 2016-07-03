@@ -1,0 +1,6 @@
+/www/
+/platforms/
+npm-debug.log
+./src/node_modules/
+node_modules/
+tmp/
