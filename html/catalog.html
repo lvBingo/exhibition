@@ -25,10 +25,11 @@
             $(function () {
                 $('.search-container input').focus(function(event) {
                     $('.catalog-page').addClass('search-mode');
+                    $(document).scrollTop(0);
                 }).blur(function(){
                     if($('.search-list').hasClass('no-result'))
                         $('.catalog-page').removeClass('search-mode');
-                }).on('input keyup paste cut', function() {
+                }).on('input keyup paste cut blur', function() {
                     clearTimeout(timeHandle);
                     if($('.search-container input').val().length)
                         timeHandle = setTimeout(function(){
@@ -38,7 +39,7 @@
                                     if(data.length){
                                         for (var i = data.length - 1; i >= 0; i--) {
                                             var item = data[i];
-                                            $('.search-list').append('<section><a href="detail.html?id=' + item.id + '">'+item.title+'</a></section>');
+                                            $('.search-list').prepend('<section><a href="detail.html?id=' + item.id + '">'+item.title+'</a></section>');
                                         }
                                         $('.search-list').removeClass('no-result');
                                     }
@@ -56,12 +57,14 @@
                     $('.search-container input').keyup();
                 }
 
+                $('.search-container container')
+
                 FastClick.attach(document.body);
             })
         </script>
     </head>
     <body>
-        <div class='catalog-page container search-mode'>
+        <div class='catalog-page container'>
             <div class='header-img'>
                 <img src='../static/img/bg_top.jpg' />
             </div>
@@ -92,7 +95,7 @@
                     <li><a href="list_04.html"><img src='../static/img/title_4.png'/></a></li>
                 </ul>
                 <div class='copy-right'></div>
-                <div class="search-list">
+                <div class="search-list no-result">
                     <section><a>无结果</a></section>
                 </div>
             </div>

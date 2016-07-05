@@ -12,8 +12,8 @@
     width: 100%;
     color: #66574D;
     font-size: 15px;
-    margin-left: 22px;
-    margin-top: 9px;
+    margin-left: 18px;
+    margin-top: 7px;
     border:none;
     background: none;
 }
@@ -45,8 +45,13 @@ ul{
     margin-top: 18px;
     margin-bottom: 28px;
 }
+
+li {
+    width:48%;
+}
+
 li img{
-    width:130px;
+    width:100%;
 }
 li :nth-child(2n){
     margin-left: 8px;

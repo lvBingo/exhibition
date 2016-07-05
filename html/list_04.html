@@ -22,11 +22,11 @@
         <script type="text/javascript" src='../static/jquery.min.js'></script>
         <script type="text/javascript">
             $(function () {
-                $.get('http://123.57.37.103/hdtsz/section?sec=3',
+                $.get('http://114.215.154.23/hdtsz/section?sec=3',
                     function(data){
                         for (var i = data.length - 1; i >= 0; i--) {
                             var item = data[i];
-                            $('.chapter-index').eq(item.part-1).append('<li><a href="detail.html?id=' + item.id + '">'+item.title+'</a></li>');
+                            $('.chapter-index').eq(item.part-1).prepend('<li><a href="detail.html?id=' + item.id + '">'+item.title+'</a></li>');
                         }
                     }
                 )
