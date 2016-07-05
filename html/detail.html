@@ -29,7 +29,8 @@
             }
             var desc;
             var slideUp = function(){
-                $('.desc p').html(desc.length>30?desc.slice(0,38)+'...':desc);
+                $('.desc p').html(desc.length>30?desc.slice(0,30)+'...':desc);
+                if(desc.length<30) $('control').hide();
             };
             var slideDown = function(){
                 setTimeout(function(){
@@ -42,7 +43,7 @@
                         var width,height, $pic;
                         if(data.pic){
                             width = data.picSize.width, height=data.picSize.height;
-                            $pic = $("<img src='http://123.57.37.103/hdtsz/picture/"+data.id+".jpg' />");
+                            $pic = $("<img src='http://114.215.154.23/hdtsz/picture/"+data.id+".jpg' />");
                             if(width<height) 
                                 $pic.width($(window).width());
                             else

@@ -14,6 +14,8 @@
     min-height: 100%;
     top:-50%;
     left:-50%;
+    background: url('img/bg_texture.jpg') repeat scroll center;
+    background-size: 100%;
 }
 
 .desc{
@@ -55,6 +57,7 @@
     -moz-transition: height .5s; /* Firefox 4 */
     -webkit-transition: height .5s; /* Safari 和 Chrome */
     transition: height .5s;
+     -webkit-overflow-scrolling : touch;
 }
 
 .desc.expand p{
@@ -110,7 +113,8 @@
     font-size: 22px;
     font-weight: 700;
     color: #4C3D3D;
-    line-height: 62px;
+    line-height: 26px;
+    padding:18px 0;
 }
 
 .desc p{
@@ -153,6 +157,7 @@
     overflow: scroll;
     box-shadow:none;
     padding-bottom: 68px;
+    -webkit-overflow-scrolling : touch;
 }
 .no-pic .desc h1{
     margin-top: 18px;
