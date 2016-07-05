@@ -13,7 +13,7 @@
     color: #66574D;
     font-size: 15px;
     margin-left: 18px;
-    margin-top: 7px;
+    padding-top: 8px;
     border:none;
     background: none;
 }
@@ -55,6 +55,10 @@ li img{
 }
 li :nth-child(2n){
     margin-left: 8px;
+}
+
+.search-container{
+    position: relative;
 }
 
 .copy-right{

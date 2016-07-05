@@ -23,7 +23,8 @@
         <script type="text/javascript">
             var timeHandle;
             $(function () {
-                $('.search-container input').focus(function(event) {
+                var $input = $('.search-container input');
+                $input.focus(function(event) {
                     $('.catalog-page').addClass('search-mode');
                     $(document).scrollTop(0);
                 }).blur(function(){
@@ -31,9 +32,9 @@
                         $('.catalog-page').removeClass('search-mode');
                 }).on('input keyup paste cut blur', function() {
                     clearTimeout(timeHandle);
-                    if($('.search-container input').val().length)
+                    if($input.val().length)
                         timeHandle = setTimeout(function(){
-                            $.get('http://123.57.37.103/hdtsz/search?q='+$('.search-container input').val(),
+                            $.get('http://123.57.37.103/hdtsz/search?q='+$input.val(),
                                 function(data){
                                     $('.search-list').empty();
                                     if(data.length){
@@ -53,11 +54,7 @@
                         $('.search-list').addClass('no-result').empty();
                 });
 
-                if($('.search-container input').val().length){
-                    $('.search-container input').keyup();
-                }
-
-                $('.search-container container')
+                $input.val('');
 
                 FastClick.attach(document.body);
             })
@@ -83,8 +80,8 @@
                 <div class='search-container'>
                     <label>
                         <input type='text' placeholder='搜索展点'/>
-                        <i class="search-icon"></i>
                     </label>
+                    <i class="search-icon"></i>
                 </div>
                 <div class='cutline'>章节索引</div>
                 <div class='cutline search'>搜索结果</div>
