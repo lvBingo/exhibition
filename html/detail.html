@@ -45,9 +45,9 @@
                             width = data.picSize.width, height=data.picSize.height;
                             $pic = $("<img src='http://114.215.154.23/hdtsz/picture/"+data.id+".jpg' />");
                             if(width<height) 
-                                $pic.width($(window).width());
+                                $pic.width($(window).width()).css({'min-height':$(window).height()});
                             else
-                                $pic.height($(window).height());
+                                $pic.height($(window).height()).css({'min-width':$(window).width()});;
                             $('.artwork').append($pic)
                         }else{
                             $('.detail-page').addClass('no-pic');
