@@ -48,7 +48,11 @@
 }
 
 .desc.no-content h1{
-    line-height: 72px;
+    line-height: 26px;
+    padding: 23px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .desc.expand{
