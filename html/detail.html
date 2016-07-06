@@ -51,8 +51,7 @@
                             $('.artwork').append($pic)
                         }else{
                             $('.detail-page').addClass('no-pic');
-                            if($('.no-pic .desc').height()<$(window).height()-70)
-                                $('.no-pic .desc').height($(window).height()-70)
+                            $('.no-pic .desc').css({'min-height':$(window).height()})
                         }
                         if(data.desc){
                             desc = data.desc;
