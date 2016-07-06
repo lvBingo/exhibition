@@ -47,6 +47,7 @@ ul{
 }
 
 li {
+    max-width: 222px;
     width:48%;
 }
 
